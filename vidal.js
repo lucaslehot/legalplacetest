@@ -30,7 +30,7 @@ class Vidal {
 
     //At the end of each day our system lowers both values for every drug
     this.defaultExpiresInEvolutionFunction = (expiresIn) => {
-      return expiresIn - 1;
+      return -1;
     }
 
     //"Magic Pill" never expires nor decreases in Benefit.

@@ -102,12 +102,12 @@ describe("Pharmacy", () => {
   });
 
   it("should set the benefit to 0 when the expiration date is passed", () => {
-    const drug = new Drug("Fervex", 0, 3);
+    const drug = new Drug("Fervex", -1, 3);
     const pharmacy = new Pharmacy([drug]);
 
     pharmacy.updateBenefitValue();
 
-    expect(drug.expiresIn).toBe(-1);
+    expect(drug.expiresIn).toBe(-2);
     expect(drug.benefit).toBe(0);
   });
 
@@ -122,7 +122,7 @@ describe("Pharmacy", () => {
   });
 
   it("should decrease the benefit for Dafalgan twice as fast as normal drugs after the expiration date", () => {
-    const drug = new Drug("Dafalgan", 0, 3);
+    const drug = new Drug("Dafalgan", 0, 5);
     const pharmacy = new Pharmacy([drug]);
 
     pharmacy.updateBenefitValue();

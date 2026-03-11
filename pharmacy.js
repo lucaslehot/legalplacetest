@@ -16,13 +16,18 @@ export class Pharmacy {
 
   updateBenefitValue() {
     this.drugs.forEach(drug => {
-      if (this.vidal.drugs[drug.name]) {
-        drug.benefit += this.vidal.drugs[drug.name].benefitEvolutionFunction(drug.expiresIn);
-        drug.expiresIn += this.vidal.drugs[drug.name].expiresInEvolutionFunction(drug.expiresIn);
+      vidalEntry = this.vidal.drugs[drug.name];
+      if (vidalEntry) {
+        drug.benefit += vidalEntry.benefitEvolutionFunction(drug.expiresIn);
+        drug.expiresIn += vidalEntry.expiresInEvolutionFunction(drug.expiresIn);
       } else {
-        drug.benefit -= 1;
-        drug.expiresIn -= 1;
+        //I'd rather not have this default behaviour as unknown drugs should just throw an error.
+        //However I'll keep it here for time limit and testing reasons.
+        drug.benefit += this.vidal.defaultBenefitEvolutionFunction(drug.expiresIn);
+        drug.expiresIn += this.vidal.defaultExpiresInEvolutionFunction(drug.expiresIn);
       }
+
+      drug.benefit = Math.max(0, Math.min(50, drug.benefit));
     });
 
     return this.drugs;
