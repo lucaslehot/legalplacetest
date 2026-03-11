@@ -1,3 +1,5 @@
+import { Vidal } from "./vidal";
+
 export class Drug {
   constructor(name, expiresIn, benefit) {
     this.name = name;
@@ -9,6 +11,7 @@ export class Drug {
 export class Pharmacy {
   constructor(drugs = []) {
     this.drugs = drugs;
+    this.vidal = new Vidal();
   }
   updateBenefitValue() {
     for (var i = 0; i < this.drugs.length; i++) {
