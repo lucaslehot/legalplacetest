@@ -40,27 +40,22 @@ class Vidal {
 
     this.drugs = {
       "Doliprane": {
-        name: "Doliprane",
         benefitEvolutionFunction: this.defaultBenefitEvolutionFunction,
         expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       },
       "Herbal Tea": {
-        name: "Herbal Tea",
         benefitEvolutionFunction: this.type1BenefitEvolutionFunction,
         expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       },
       "Fervex": {
-        name: "Fervex",
         benefitEvolutionFunction: this.type2BenefitEvolutionFunction,
         expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       },
       "Magic Pill": {
-        name: "Magic Pill",
         benefitEvolutionFunction: this.type3BenefitEvolutionFunction,
         expiresInEvolutionFunction: this.type1ExpiresInEvolutionFunction
       },
       "Dafalgan": {
-        name: "Dafalgan",
         benefitEvolutionFunction: this.type4BenefitEvolutionFunction,
         expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       }
