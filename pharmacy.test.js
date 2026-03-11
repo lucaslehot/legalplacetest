@@ -101,7 +101,7 @@ describe("Pharmacy", () => {
     expect(drug.benefit).toBe(6);
   });
 
-  it("should set the benefit to 0 when the expiration date is passed", () => {
+  it("should set the benefit for Fervex to 0 when the expiration date is passed", () => {
     const drug = new Drug("Fervex", -1, 3);
     const pharmacy = new Pharmacy([drug]);
 
