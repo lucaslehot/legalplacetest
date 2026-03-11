@@ -16,7 +16,7 @@ export class Pharmacy {
 
   updateBenefitValue() {
     this.drugs.forEach(drug => {
-      vidalEntry = this.vidal.drugs[drug.name];
+      const vidalEntry = this.vidal.drugs[drug.name];
       if (vidalEntry) {
         drug.benefit += vidalEntry.benefitEvolutionFunction(drug.expiresIn);
         drug.expiresIn += vidalEntry.expiresInEvolutionFunction(drug.expiresIn);

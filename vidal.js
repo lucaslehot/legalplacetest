@@ -12,7 +12,7 @@ class Vidal {
 
     //"Fervex", like Herbal Tea, increases in Benefit as its expiration date approaches.Benefit increases by 2 when there are 10 days or less and by 3 when there are 5 days or less but Benefit drops to 0 after the expiration date.
     this.type2BenefitEvolutionFunction = (expiresIn) => {
-      if (expiresIn < 0) {
+      if (expiresIn <= 0) {
         return -51;
       }
       return expiresIn > 10 ? 1 : expiresIn > 5 ? 2 : 3;
