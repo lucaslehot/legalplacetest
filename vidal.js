@@ -3,23 +3,28 @@ class Vidal {
     this.drugs = {
       "Doliprane": {
         name: "Doliprane",
-        benefitEvolutionFunction: this.defaultBenefitEvolutionFunction
+        benefitEvolutionFunction: this.defaultBenefitEvolutionFunction,
+        expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       },
       "Herbal Tea": {
         name: "Herbal Tea",
-        benefitEvolutionFunction: this.type1BenefitEvolutionFunction
+        benefitEvolutionFunction: this.type1BenefitEvolutionFunction,
+        expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       },
       "Fervex": {
         name: "Fervex",
-        benefitEvolutionFunction: this.type2BenefitEvolutionFunction
+        benefitEvolutionFunction: this.type2BenefitEvolutionFunction,
+        expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       },
       "Magic Pill": {
         name: "Magic Pill",
-        benefitEvolutionFunction: this.type3BenefitEvolutionFunction
+        benefitEvolutionFunction: this.type3BenefitEvolutionFunction,
+        expiresInEvolutionFunction: this.type1ExpiresInEvolutionFunction
       },
       "Dafalgan": {
         name: "Dafalgan",
-        benefitEvolutionFunction: this.type4BenefitEvolutionFunction
+        benefitEvolutionFunction: this.type4BenefitEvolutionFunction,
+        expiresInEvolutionFunction: this.defaultExpiresInEvolutionFunction
       }
     }
 
@@ -49,6 +54,16 @@ class Vidal {
     //"Dafalgan" degrades in Benefit twice as fast as normal drugs.
     this.type4BenefitEvolutionFunction = (expiresIn) => {
       return expiresIn > 0 ? -2 : -4;
+    }
+
+    //At the end of each day our system lowers both values for every drug
+    this.defaultExpiresInEvolutionFunction = (expiresIn) => {
+      return expiresIn - 1;
+    }
+
+    //"Magic Pill" never expires nor decreases in Benefit.
+    this.type1ExpiresInEvolutionFunction = (expiresIn) => {
+      return 0;
     }
   }
 }
